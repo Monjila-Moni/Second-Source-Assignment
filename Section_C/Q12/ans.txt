@@ -1,0 +1,16 @@
+Q: What are the benefits of useEffect compared to class component lifecycle methods?
+
+
+useEffect is a Hook introduced in React 16.8 that offers several advantages over traditional class component lifecycle methods:
+
+1.Unified API: useEffect combines the functionality of multiple lifecycle methods (componentDidMount, componentDidUpdate, and componentWillUnmount) into a single, more intuitive API.
+
+2.Separation of concerns: You can organize related logic together in multiple useEffect calls instead of splitting code across different lifecycle methods.
+
+3.Reduced code duplication: Class components often require the same logic in both componentDidMount and componentDidUpdate, while useEffect handles both cases.
+
+4.Better handling of side effects: useEffect makes side effects more explicit and easier to test.
+
+5.Cleaner cleanup logic: Cleanup functions are returned directly from the effect that created them, keeping related code together.
+
+6.Dependency arrays: The dependency array allows you to control when effects run, only re-executing when specific values change.

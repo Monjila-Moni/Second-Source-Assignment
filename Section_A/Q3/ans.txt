@@ -1,0 +1,40 @@
+Q: What is z-index? Describe a common real-world use case.
+
+The z-index in CSS is used to control the stacking order of elements on a webpage — that is, which elements appear in front of or behind others along the z-axis (like layers).z-index only works on elements with a position of relative, absolute, fixed, or sticky.Higher z-index values appear on top of lower values.If elements have the same z-index, the one that comes later in the HTML will be on top.z-index can be positive, zero, or negative.An element with z-index: -1 will go behind the normal flow.z-index applies only to elements that create a stacking context (which includes positioned elements and some others like elements with opacity < 1 or transform applied).
+
+real-world use cases:
+---------------------
+1.Sticky or Fixed Header:When scrolling, the header should remain on top of all content.
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999; /* Ensure it stays above other elements */
+  }
+2.Dropdown Menu:Dropdowns should appear above other elements like text or images.
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+  }
+3. Tooltips:When you hover over an element, a tooltip appears above everything.
+  .tooltip {
+    position: absolute;
+    background: black;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+    z-index: 9999; /* Very high to ensure visibility */
+  }
+4. Image Overlays or Banners:Banners, ribbons, or badges (like "Sale!" on a product card) that overlap product images.
+  .badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: red;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+    z-index: 10;
+  }

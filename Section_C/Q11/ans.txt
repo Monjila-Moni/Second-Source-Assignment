@@ -1,0 +1,41 @@
+Q: What is controlled component in React? How does it differ from am uncontrolled one?
+
+Controlled Component:
+---------------------
+A controlled component in React is a form element whose value is controlled by React state. The component doesn't maintain its own internal state - instead, React state serves as the "single source of truth" for the component's value.
+
+Key characteristics:
+    -The component's value is set by React state
+    -Changes to the component are handled through event handlers (typically onChange)
+    -React state is explicitly updated when the user interacts with the component
+
+ex:
+    function ControlledInput() {
+    const [value, setValue] = useState('');
+    
+    return (
+        <input
+        type="text"
+        value={value} // Value comes from React state
+        onChange={(e) => setValue(e.target.value)} // State updates on change
+        />
+    );
+    }
+
+Uncontrolled Component:
+-----------------------
+An uncontrolled component maintains its own internal state in the DOM itself, rather than in React state. React doesn't control the component's value after initial rendering.
+
+Key characteristics:
+    -The component manages its own state internally
+    -Values are accessed using refs when needed
+    -No explicit state updates when user interacts with the component
+
+
+Key Differences:
+    1.State Management: Controlled components use React state; uncontrolled components use the DOM itself.
+    2.Data Flow: Controlled components have predictable data flow through React's state system; uncontrolled components have more direct DOM interaction.
+    3.Form Validation: Controlled components make real-time validation easier as every change flows through React state.
+    4.Predictability: Controlled components offer more predictable behavior since React tracks all state changes.
+    5.Code Complexity: Controlled components typically require more code but provide better control and predictability.
+The React team generally recommends using controlled components for most form implementations.

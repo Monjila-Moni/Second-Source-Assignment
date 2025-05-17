@@ -1,0 +1,16 @@
+Q: Explain the difference between == and === in Js
+
+
+Both operators are used for comparison but differ in handling data types. 
+First one is also known as loose equeality because it compares only values not types. It performs type coercion(tries to convert values to the same type before comparing) before comparison then compares values. Due to type coercion it can produce unexpected results.
+ex:
+    console.log(5 == "5"); // true → "5" (string) is converted to 5 (number)
+    console.log(null == undefined); // true
+    console.log(0 == false); // true(boolean false is converted to number 1)
+
+Second one compares both value and type. Thus no type conversion is needed. So it is more predictable and avoids unexpected behavior.
+ex:
+    console.log(5 === "5"); // false (number 5 and string "5" are different types)
+    console.log(null === undefined); // false (null and undefined are different types)
+    console.log(0 === false); // false (boolean false and number 0 are different types)
+    

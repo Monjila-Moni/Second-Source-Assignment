@@ -1,0 +1,20 @@
+Q: What is the event loop in Js ? Explain with a brief example.
+
+The event loop is an important concept in JavaScript that enables asynchronous programming by handling tasks efficiently. Since JavaScript is single-threaded, it uses the event loop to manage the execution of multiple tasks without blocking the main thread.
+
+    console.log("Start");
+
+    setTimeout(() => {
+        console.log("setTimeout Callback");
+    }, 0);
+
+    Promise.resolve().then(() => {
+        console.log("Promise Resolved");
+    });
+
+    console.log("End");
+
+In this example
+console.log("Start") executes first.setTimeout schedules its callback but does not execute it immediately.
+Promise.resolve().then() is placed in the microtask queue and executes before the callback queue.Promise Resolved appears before setTimeout Callback due to microtask priority.
+JavaScript executes code synchronously in a single thread. However, it can handle asynchronous operations such as fetching data from an API, handling user events, or setting timeouts without pausing execution. This is made possible by the event loop.

@@ -1,0 +1,20 @@
+Q: What are closures? Provide a simple example
+
+A closere in JavaScript is function that remembers the scope in which it was created- even after ther outer function has finished executing. This means a closere can still access variables from its parent scope, even ehen called later in a different contex.
+When a function is defined inside another function and returned or used outside, it forms a closure by "closing over" the variables of its outer functions.
+
+ex: 
+    function outerFunction() {
+    let count = 0;
+
+    return function innerFunction() {
+        count++;
+        console.log("Count is:", count);
+    };
+    }
+
+    const counter = outerFunction();
+
+    counter(); // Count is: 1
+    counter(); // Count is: 2
+    counter(); // Count is: 3
